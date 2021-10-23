@@ -42,7 +42,7 @@ public class OrderController {
 
 
 
-    @PostMapping(path = "")
+    @PostMapping(path = "add")
     public ResponseEntity<Map<String, Object>> addCategory(@RequestBody Map<String, Object> newOrder) {
 
         User user = userRepository.findById((Integer) newOrder.get("idclient")).get();
@@ -64,7 +64,7 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @GetMapping(path = "")
+    @GetMapping(path = "all")
     public ResponseEntity<List<Order>> getAllOrders() {
         List<Order> orders = this.orderRepository.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(orders);
